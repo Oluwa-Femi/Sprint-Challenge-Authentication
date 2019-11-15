@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
 // Models and Secrets go here
 const Users = require('./auth-model');
 const secrets = require('../config/secrets');
@@ -37,7 +38,6 @@ function generateToken(user) {
   const payload = {
     user: user.username,
     subject: user.id,
-  }
 };
 
 const options = {
@@ -46,4 +46,5 @@ const options = {
 
 return jwt.sign(payload, secrets.jwtSecret, options);
 
+}
 module.exports = router;

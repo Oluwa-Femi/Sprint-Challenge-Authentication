@@ -17,7 +17,7 @@ describe('Users Model', () => {
             const users = await db('users');
             expect(users).toHaveLength(1);
         })
-
+        
         it('Should only add a new user when password is specified', async () => {
             await Users.add({ username: 'thisiswrong' })
             const users = await db('users');
