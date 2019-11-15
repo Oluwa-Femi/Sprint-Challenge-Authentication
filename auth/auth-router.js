@@ -38,6 +38,12 @@ function generateToken(user) {
     user: user.username,
     subject: user.id,
   }
-}
+};
+
+const options = {
+  expiresIn: '1d'
+};
+
+return jwt.sign(payload, secrets.jwtSecret, options);
 
 module.exports = router;
